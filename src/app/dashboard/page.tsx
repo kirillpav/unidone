@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
+import SemesterList from "./_components/SemesterList";
 
 export default async function Dashboard() {
 	const supabase = await createClient();
@@ -12,5 +13,14 @@ export default async function Dashboard() {
 		return redirect("/login");
 	}
 
-	return <div></div>;
+	const { data: semesters } = await supabase
+		.from("semesters")
+		.select("*")
+		.order("inserted_at", { ascending: false });
+
+	return (
+		<section className="p-3 pt-6 max-w-2xl w-full flex flex-col gap-4">
+			<SemesterList semesters={semesters ?? []} />
+		</section>
+	);
 }

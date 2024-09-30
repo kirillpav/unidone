@@ -1,6 +1,9 @@
+"use client";
+
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Provider } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
+import { oAuthSignIn } from "./actions";
 
 type OAuthProvider = {
 	name: Provider;
@@ -24,6 +27,9 @@ export function OAuthButtons() {
 					key={provider.name}
 					className="flex items-center justify-center gap-2 p-2 border rounded-md"
 					variant="outline"
+					onClick={async () => {
+						await oAuthSignIn(provider.name);
+					}}
 				>
 					{provider.icon}
 					<span>Sign in with {provider.displayName}</span>
