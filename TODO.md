@@ -1,7 +1,11 @@
 [x] - set up db schema
-[] - Connect DB
+[x] - Connect DB
 [] - Set Up home page
 [] - Dashboard page
+
+##### Auth
+
+[] - Add google oAuth
 
 #### For Deployment
 
