@@ -24,9 +24,15 @@ export default async function Dashboard() {
 	}
 
 	return (
-		<section className="p-3 pt-6 w-full flex flex-col gap-4 flex-wrap">
-			<p className="text-white">Hi {user.email}!</p>
-			<SemesterList semesters={semesters ?? []} />
+		<section className="p-3 pt-6 w-full flex flex-row gap-4">
+			<div className="w-2/3">
+				<p className="text-white">Hi {user.email}!</p>
+				<SemesterList semesters={semesters ?? []} />
+			</div>
+			<div className="w-1/3 text-white">
+				<h2>Tasks</h2>
+				// TODO Add tasks
+			</div>
 		</section>
 	);
 }
