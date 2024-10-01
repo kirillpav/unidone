@@ -11,8 +11,8 @@ export function SemesterItem({ semester }: { semester: Semester }) {
 
 export function SemesterCard({ semester }: { semester: Semester }) {
 	return (
-		<Card>
-			<div className="w-1/3">{semester.semester_name}</div>
+		<Card className="p-6 w-full">
+			<h2>{semester.semester_name}</h2>
 		</Card>
 	);
 }

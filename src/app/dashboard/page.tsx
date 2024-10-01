@@ -13,10 +13,15 @@ export default async function Dashboard() {
 		return redirect("/login");
 	}
 
-	const { data: semesters } = await supabase
+	const { data: semesters, error } = await supabase
 		.from("semesters")
 		.select("*")
-		.order("inserted_at", { ascending: false });
+		.order("start_date", { ascending: false });
+
+	if (error) {
+		console.error("Supabase error: ", error.message);
+		return <p className="text-white">Error fetching semesters</p>;
+	}
 
 	return (
 		<section className="p-3 pt-6 max-w-2xl w-full flex flex-col gap-4">
