@@ -37,6 +37,16 @@ export default async function LoginPage() {
 				<CardContent className="flex flex-col gap-4">
 					<form id="login-form" className="grid gap-4">
 						<div className="grid gap-2">
+							<Label htmlFor="name">Name:</Label>
+							<Input
+								id="Name"
+								name="Name"
+								type="Name"
+								placeholder="First Name"
+								required
+							/>
+						</div>
+						<div className="grid gap-2">
 							<Label htmlFor="email">Email:</Label>
 							<Input
 								id="email"
@@ -46,6 +56,7 @@ export default async function LoginPage() {
 								required
 							/>
 						</div>
+
 						<div className="grid gap-2">
 							<Label htmlFor="password">Password:</Label>
 							<Input

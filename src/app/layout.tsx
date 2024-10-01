@@ -3,6 +3,10 @@ import localFont from "next/font/local";
 import Navbar from "./_components/Navbar";
 import "./globals.css";
 
+const chillax = localFont({
+	src: "./fonts/Chillax-Variable.ttf",
+});
+
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
 	variable: "--font-geist-sans",
@@ -26,9 +30,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
-			>
+			<body className={`${chillax.className} antialiased bg-black`}>
 				<Navbar />
 				{children}
 			</body>

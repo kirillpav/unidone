@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
+import { SeparatorHorizontal } from "lucide-react";
 
 export default function Hero() {
 	return (
 		<div className="flex flex-col items-center">
-			<h1 className="text-white text-5xl text-center">
-				Revolutioize your university organization system
+			<h1 className="text-white text-7xl text-center w-1/2 mb-6 font-bold">
+				Supercharge your unversity productivity
 			</h1>
-			<Button className="w-[100px]">Get Started</Button>
+			<Button className="w-[200px]">Get Started</Button>
 		</div>
 	);
 }
