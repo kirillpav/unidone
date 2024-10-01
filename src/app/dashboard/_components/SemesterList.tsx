@@ -11,13 +11,11 @@ export default function SemesterList({
 	semesters: Array<Semester>;
 }) {
 	return (
-		<div>
-			<div className="flex flex-row gap-4">
-				<AddSemester />
-				{semesters?.map((semester) => {
-					return <SemesterItem semester={semester} key={semester.id} />;
-				})}
-			</div>
+		<div className="flex flex-row gap-4 flex-wrap ">
+			{semesters?.map((semester) => {
+				return <SemesterItem semester={semester} key={semester.id} />;
+			})}
+			<AddSemester />
 		</div>
 	);
 }

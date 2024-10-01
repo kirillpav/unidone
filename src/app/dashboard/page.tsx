@@ -24,7 +24,7 @@ export default async function Dashboard() {
 	}
 
 	return (
-		<section className="p-3 pt-6 max-w-2xl w-full flex flex-col gap-4">
+		<section className="p-3 pt-6 w-full flex flex-col gap-4 flex-wrap">
 			<SemesterList semesters={semesters ?? []} />
 		</section>
 	);
