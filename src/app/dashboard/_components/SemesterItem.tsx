@@ -16,7 +16,7 @@ export function SemesterItem({ semester }: { semester: Semester }) {
 
 export function SemesterCard({ semester }: { semester: Semester }) {
 	return (
-		<Link href={"/dashboard/classes"}>
+		<Link href={`/dashboard/${semester.semester_name}`}>
 			<Card className="p-6 bg-gray-700 border-none relative">
 				<h2>{semester.semester_name}</h2>
 				<p>{semester.start_date}</p>

@@ -20,9 +20,24 @@ export default async function Navbar() {
 
 				{user !== null ? (
 					<form action={signOut} className="flex flex-row items-center gap-2">
-						<Link href={"/dashboard"}>Dashboard</Link>
-						<Link href={"/dashboard/classes"}>Classes</Link>
-						<Link href={"/dashboard/assignments"}>Assignments</Link>
+						<Link
+							href={"/dashboard"}
+							className="hover:border-b border-b-white transition duration-200"
+						>
+							Dashboard
+						</Link>
+						<Link
+							href={"/dashboard/classes"} // Aggregates all classes
+							className="hover:border-b border-b-white transition duration-200"
+						>
+							Classes
+						</Link>
+						<Link
+							href={"/dashboard/assignments"} // shows all assignments
+							className="hover:border-b border-b-white transition duration-200"
+						>
+							Assignments
+						</Link>
 						{/* <p> {user.email}</p> */}
 						<Button>Sign Out</Button>
 					</form>
@@ -32,7 +47,7 @@ export default async function Navbar() {
 					</Button>
 				)}
 			</div>
-			<div className="w-full border-b border-b-white mt-4 overflow-auto"></div>
+			{/* <div className="w-full border-b border-b-white mt-4 overflow-auto"></div> */}
 		</nav>
 	);
 }

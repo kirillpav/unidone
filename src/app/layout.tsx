@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "./_components/Navbar";
+import { Separator } from "@radix-ui/react-separator";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const chillax = localFont({
 	src: "./fonts/Chillax-Variable.ttf",
@@ -32,6 +34,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${chillax.className} antialiased bg-black`}>
 				<Navbar />
+				<Separator className={cn("bg-white h-[1px]")} />
 				{children}
 			</body>
 		</html>
