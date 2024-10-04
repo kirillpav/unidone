@@ -16,6 +16,8 @@ function FormContent() {
 				placeholder="class name"
 				required
 			/>
+			<Input minLength={3} name="location" placeholder="Location" />
+			<Input minLength={3} name="professor_name" placeholder="Professor" />
 			<Button type="submit" size="icon" className="min-w-10">
 				Add
 			</Button>
@@ -23,7 +25,7 @@ function FormContent() {
 	);
 }
 
-export function AddClassButton() {
+export function AddClassButton({ semesterId }: { semesterId: number }) {
 	const formRef = useRef<HTMLFormElement>(null);
 
 	return (
@@ -33,7 +35,7 @@ export function AddClassButton() {
 					ref={formRef}
 					className="flex gap-4"
 					action={async (data) => {
-						await AddClass(data, "semester_name");
+						await AddClass(data, semesterId);
 						formRef.current?.reset();
 					}}
 				>

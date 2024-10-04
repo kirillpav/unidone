@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export async function AddClass(formData: FormData, semester_name: string) {
+export async function AddClass(formData: FormData, semesterId: number) {
 	const supabase = createClient();
 	const text = formData.get("class_name") as string | null;
 	const location = formData.get("location") as string | null;
@@ -21,7 +21,7 @@ export async function AddClass(formData: FormData, semester_name: string) {
 	const { data: semesterData, error: semesterError } = await supabase
 		.from("semesters")
 		.select("id")
-		.eq("name", semester_name)
+		.eq("id", semesterId)
 		.eq("user_id", user.id)
 		.single();
 
@@ -44,5 +44,5 @@ export async function AddClass(formData: FormData, semester_name: string) {
 		throw new Error("Error" + error.message);
 	}
 
-	revalidatePath(`/dashboard/${semester_name}`);
+	revalidatePath(`/dashboard/${semesterId}`);
 }

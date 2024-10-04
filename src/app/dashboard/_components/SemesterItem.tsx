@@ -16,21 +16,21 @@ export function SemesterItem({ semester }: { semester: Semester }) {
 
 export function SemesterCard({ semester }: { semester: Semester }) {
 	return (
-		<Link href={`/dashboard/${semester.semester_name}`}>
-			<Card className="p-6 bg-gray-700 border-none relative">
+		<Card className="p-6 bg-gray-700 border-none relative">
+			<Link href={`/dashboard/${semester.id}`}>
 				<h2>{semester.semester_name}</h2>
 				<p>{semester.start_date}</p>
-				<Button
-					className="bg-red-600 hover:bg-red-500 absolute right-1 bottom-1"
-					formAction={async () => {
-						await deleteSemester(semester.id);
-					}}
-					variant={"ghost"}
-					size={"icon"}
-				>
-					<Trash2 />
-				</Button>
-			</Card>
-		</Link>
+			</Link>
+			<Button
+				className="bg-red-600 hover:bg-red-500 absolute right-1 bottom-1"
+				formAction={async () => {
+					await deleteSemester(semester.id);
+				}}
+				variant={"ghost"}
+				size={"icon"}
+			>
+				<Trash2 />
+			</Button>
+		</Card>
 	);
 }
