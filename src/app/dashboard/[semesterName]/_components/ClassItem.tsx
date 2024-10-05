@@ -1,7 +1,7 @@
 "use client";
 import { Class } from "@/types/custom";
 import { Card } from "@/components/ui/card";
-// import { deleteClass } from "../actions"
+import { deleteClass } from "../actions";
 import { Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export function ClassCard({ classItem }: { classItem: Class }) {
 				<Button
 					className="bg-red-600 hover:bg-red-500 absolute right-1 bottom-1"
 					formAction={async () => {
-						// await deleteClass(class.id);
+						await deleteClass(classItem.id, classItem.semester_id);
 					}}
 					variant={"ghost"}
 					size={"icon"}

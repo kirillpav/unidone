@@ -18,14 +18,14 @@ export default async function Page({
 		return <p>Not Logged In</p>;
 	}
 
-	const { data: semesterData, error: SemesterError } = await supabase
+	const { data: semesterData, error: semesterError } = await supabase
 		.from("semesters")
 		.select("id")
 		.eq("user_id", user.id)
 		.single();
 
-	if (SemesterError || !semesterData) {
-		return <p>Semester not found</p>;
+	if (semesterError || !semesterData) {
+		return <p>Semester not found. Error: {semesterError.message}</p>;
 	}
 
 	const { data: classesData, error: classesError } = await supabase
